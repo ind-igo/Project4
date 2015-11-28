@@ -63,30 +63,31 @@ public class DisjSets
 
 
     // Test main; all finds on same output line should be identical
-//    public static void main( String [ ] args )
-//    {
-//        int NumElements = 25;
-//        int NumInSameSet = 5;
-//
-//        DisjSets ds = new DisjSets( NumElements );
-////        int set1, set2;
-////		//Make each row have same root
-////        for( int k = 1; k < NumInSameSet; k *= 2 )
-////        {
-////            for( int j = 0; j + k < NumElements; j += 2 * k )
-////            {
-////                set1 = ds.find( j );
-////                set2 = ds.find( j + k );
-////                ds.union( set1, set2 );
-////            }
-////        }
-//
-//        for( int i = 0; i < NumElements; i++ )
-//        {
-//            System.out.printf( "%02d | ", ds.find( i ) );
-//            if( i % NumInSameSet == NumInSameSet - 1 )
-//                System.out.println( );
-//        }
-//        System.out.println( );
-//    }
+    public static void main( String [ ] args )
+    {
+        int NumElements = 25;
+        int NumInSameSet = 5;
+
+        DisjSets ds = new DisjSets( NumElements );
+        int set1, set2;
+        
+		//Make each row have same root
+        for( int k = 1; k < NumInSameSet; k *= 2 )
+        {
+            for( int j = 0; j + k < NumElements; j += 2 * k )
+            {
+                set1 = ds.find( j );
+                set2 = ds.find( j + k );
+                ds.union( set1, set2 );
+            }
+        }
+
+        for( int i = 0; i < NumElements; i++ )
+        {
+            System.out.printf( "%02d | ", ds.find( i ) );
+            if( i % NumInSameSet == NumInSameSet - 1 )
+                System.out.println( );
+        }
+        System.out.println( );
+    }
 }
